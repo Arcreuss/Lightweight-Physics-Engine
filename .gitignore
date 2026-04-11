@@ -1,0 +1,23 @@
+# Build
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+Makefile
+cmake_install.cmake
+
+# CLion / JetBrains
+.idea/
+
+# Binaries
+engine
+*.out
+
+# Debug / crash
+core
+core.*
+vgcore.*
+
+# OS / editor
+.DS_Store
