@@ -14,10 +14,5 @@ cmake_install.cmake
 engine
 *.out
 
-# Debug / crash
-core
-core.*
-vgcore.*
-
 # OS / editor
 .DS_Store
