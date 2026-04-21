@@ -32,6 +32,7 @@ void Application::InitWindow()
         throw std::runtime_error("Failed to initialize GLFW");
     }
 
+    glfwSetErrorCallback(ErrorCallback);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -51,6 +52,8 @@ void Application::InitWindow()
 
     std::cout << "OpenGL version: " << glGetString(GL_VERSION) << '\n';
     std::cout << "Renderer: " << glGetString(GL_RENDERER) << '\n';
+
+    glfwSetKeyCallback(m_window, KeyCallback);
     glfwSwapInterval(1);
 }
 
@@ -62,4 +65,13 @@ void Application::Shutdown()
     }
 
     glfwTerminate();
+}
+
+void Application::ErrorCallback(int error, const char* description) {
+    std::cout << "GLFW Error :" << description << std::endl;
+}
+
+void Application::KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, GLFW_TRUE);
 }
