@@ -15,6 +15,7 @@ int main()
         physicsWorld.Step(0.016f);
         step++;
     }
+    physicsWorld.Clear();
 
     try {
         Application app;
