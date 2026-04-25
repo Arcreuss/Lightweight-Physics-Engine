@@ -18,6 +18,8 @@ add_executable(engine
         src/render/debug_renderer.cpp
         src/glad.c
         src/math/vec2.cpp
+        src/Body/Body.cpp
+        include/Body/Body.hpp
 )
 
 target_include_directories(engine PRIVATE
