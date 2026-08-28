@@ -26,8 +26,6 @@ void PhysicsWorld::AddToWorld(std::unique_ptr<Body> body)
 
 void PhysicsWorld::Step(float const deltaTime) const
 {
-    (void)deltaTime;
-
     size_t const size = m_Bodies.size();
     for (size_t i = 0; i < size; ++i)
     {
