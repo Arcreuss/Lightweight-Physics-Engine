@@ -1,4 +1,5 @@
 #include "math/vec2.hpp"
+#include <sstream>
 
 std::string vec2::ToString() const
 {
