@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include <vector>
 
 #include "Body/Body.hpp"
@@ -8,11 +9,14 @@ class Body;
 class PhysicsWorld
 {
 public:
+    PhysicsWorld() = default;
+    ~PhysicsWorld() = default;
+
     void Init();
-    void AddToWorld(Body* body);
-    void Step(float deltaTime);
+    void AddToWorld(std::unique_ptr<Body> body);
+    void Step(float deltaTime) const;
     void Clear();
 
 private:
-    std::vector<Body*> m_Bodies = {};
+    std::vector<std::unique_ptr<Body>> m_Bodies = {};
 };
